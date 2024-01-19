@@ -1,9 +1,12 @@
 
-export function MyList({ header, items}) {
+function MyList({ header, items, updateItem}) {
 
   const listItems = items.map((item) => 
-    <li key = {item.id.toString()}>
-      {item.text}
+    <li key = {item.id.toString()}
+        onClick={() => updateItem(item.id)}
+        style={{textDecoration: item.check ? "line-through" : null}}
+        >
+        {item.text}
     </li>
   )
   
@@ -16,4 +19,7 @@ export function MyList({ header, items}) {
     </ol>
   </div>);
 
+
 }
+
+export default MyList;
